@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Inter:wght@100..900&family=Julius+Sans+One&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+overflow: hidden;
+}
+
+
+.container{
+    height: 100vh;
+}
+
+.separacao{
+    height: 25vh;
+    background-color: white;
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.esquerda{
+    background-color: #0095FF;
+    display: grid;
+    grid-template-rows: 25% 25% 25% 25%;
+    grid-template-columns: 100%;
+}
+
+.direita{
+    display: grid;
+    grid-template-rows: 25% 25% 25% 25%;
+    grid-template-columns: 100%;
+}
+
+hr{
+    border: 1px solid #0095FF;
+}
+
+.topoEsquerda{
+    align-self: center;
+    justify-self: center;
+    color: white;
+    font-size: 2.5em;
+    font-family: 'inter';
+    grid-row: 2;
+}
+
+.topoDireita{
+    align-self: center;
+    justify-self: center;
+    font-size: 2.5em;
+    font-family: 'inter';
+    grid-row: 2;
+}
+
+#senha{
+    align-self: center;
+    justify-self: center;
+    font-size: 3.5em;
+    font-family: 'inter';
+    color: white;
+    grid-row: 3;
+}
+
+#sala{
+    align-self: center;
+    justify-self: center;
+    font-size: 3em;
+    font-family: 'inter';
+    grid-row: 3;
+}
+
+#chamadas{
+    height: 10vh;
+    align-content: center;
+}
+
+
+#historico{
+    justify-self: center;
+    font-size: 2em;
+    font-family: 'inter';
+}
+
+.topoTabela{
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    height: 5vh;
+    justify-items: center;
+    align-content: center;
+}
+
+.topoTabela div{
+    text-decoration: none;
+    font-family: 'inter';
+    font-size: 2.5em;
+    color: #0095FF;
+}
+
+.tabela{
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    height: 10%;
+}
+
+.tabela div{
+    align-self: center;
+    justify-self: center;
+    font-family: 'inter';
+    font-size: 2em;
+
+}
