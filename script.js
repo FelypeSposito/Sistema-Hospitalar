@@ -11,34 +11,26 @@ let resultado = document.getElementById("resultado");
 
 let dados = [];
 
-let horario = new Date()
-
+let horario = new Date();
 let horas = horario.getHours();
 let minutos = horario.getMinutes();
 
-let historico = document.getElementById('historico')
+// Formata o tempo como uma string "hora:minuto"
+let tempo = `${horas}:${minutos}`;
 
-//
-let tempo = [`${horas}:${minutos}`]
-// VARIAVEL COM O TEMPO FORMATADO
-
+// Evento para armazenar dados ao clicar no botão "Salvar Dados"
 senhaBtn.addEventListener("click", function () {
-  dados.push(senha.value);
-  dados.push(paciente.value);
+  dados = [senha.value, paciente.value, sala.value, tempo];
 
-  dados.push(sala.value);
-  dados.push(tempo)
+  // Exibe os dados na página
   resultado.textContent = dados.join(", ");
-
-  let pri = dados[0];
-  let seg = dados[1];
-  let tri = dados[2];
-  let qua = dados[3];
 });
 
-
+// Função para armazenar os dados no localStorage e redirecionar para a página 2
 function passarArray() {
   // Armazena o array 'dados' no localStorage
   localStorage.setItem('meuArray', JSON.stringify(dados));
-  window.location.href = 'usomedico.html';  // Redireciona para a página 2
+
+  // Redireciona para a página 2
+  window.location.href = 'usomedico.html';
 }
