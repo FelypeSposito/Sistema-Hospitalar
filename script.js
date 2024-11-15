@@ -2,35 +2,41 @@ let senha = document.getElementById("senhaMed");
 let senhaBtn = document.getElementById("senhaBtn");
 
 let paciente = document.getElementById("pacienteMed");
-let pacienteBtn = document.getElementById("pacienteBtn");
-
 let sala = document.getElementById("salaMed");
-let salaBtn = document.getElementById("salaBtn");
 
 let resultado = document.getElementById("resultado");
 
 let dados = [];
 
+// Captura a hora atual
 let horario = new Date();
 let horas = horario.getHours();
 let minutos = horario.getMinutes();
-
-// Formata o tempo como uma string "hora:minuto"
 let tempo = `${horas}:${minutos}`;
 
-// Evento para armazenar dados ao clicar no botão "Salvar Dados"
+// Evento para armazenar dados ao clicar no botão "Confirmar"
 senhaBtn.addEventListener("click", function () {
+  // Captura os valores dos campos
   dados = [senha.value, paciente.value, sala.value, tempo];
 
   // Exibe os dados na página
   resultado.textContent = dados.join(", ");
 });
 
-// Função para armazenar os dados no localStorage e redirecionar para a página 2
-function passarArray() {
-  // Armazena o array 'dados' no localStorage
-  localStorage.setItem('meuArray', JSON.stringify(dados));
+// Função para salvar os dados no sessionStorage
+function salvarDados() {
+  // Recupera os dados existentes ou inicializa um array vazio
+  let dadosExistentes = JSON.parse(sessionStorage.getItem('meuArray')) || [];
 
-  // Redireciona para a página 2
-  window.location.href = 'usomedico.html';
+  // Adiciona os novos dados ao array existente
+  dadosExistentes.push(dados);
+
+  // Armazena os dados no sessionStorage
+  sessionStorage.setItem('meuArray', JSON.stringify(dadosExistentes));
+
+  // Redireciona para a página de exibição de senhas
+  window.location.href = 'index.html';
 }
+
+// Adiciona um evento ao botão "Ir para a Página de Senhas"
+document.querySelector("a").addEventListener("click", salvarDados);
